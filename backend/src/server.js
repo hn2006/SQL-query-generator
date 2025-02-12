@@ -20,6 +20,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+app.get('/',async(req, res)=>{
+  res.json({message : "welcome to sql query generator"});
+})
+
 app.post("/upload", upload.single("file"), (_, res) => {
   res.json({ message: "File uploaded successfully" });
 });
@@ -49,5 +53,6 @@ app.post("/query", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
 
 app.listen(5000, () => console.log(`Server running on port 5000`));
