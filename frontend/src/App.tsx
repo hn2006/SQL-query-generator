@@ -21,7 +21,7 @@ const App: React.FC = () => {
       formData.append("file", file);
 
       try {
-        const res = await fetch("http://localhost:5000/upload", {
+        const res = await fetch("https://sql-query-generator-backend-qac6.onrender.com/upload", {
           method: "POST",
           body: formData,
         });
@@ -39,7 +39,7 @@ const App: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/query", {
+      const res = await fetch("https://sql-query-generator-backend-qac6.onrender.com/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
